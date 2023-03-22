@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" th:action="@{/addBook}">
+    Внесете име <input type="text" name="name">
+    <br>
+    Внeсете категорија <select name="category">
+        <option th:each="category : ${categories}" th:value="${category}" th:text="${category}"></option>
+    </select>
+    <br>
+    Внесете автор <select name="author">
+        <option th:each="author : ${authors}" th:value="${author.id}" th:text="${author.name} + ' ' + ${author.surname}"></option>
+    </select>
+    <br>
+    Достапни копии <input type="number" name="availableCopies">
+    <br>
+    <input type="submit" value="Add Book">
+</form>
+</body>
+</html>
